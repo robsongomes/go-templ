@@ -1,0 +1,36 @@
+package views
+
+import "fmt"
+
+css adminClass() {
+    color: red;
+    font-size: 1.5rem;
+}
+
+func display(user string) string {
+    return fmt.Sprintf("Welcome User %s", user)
+}
+
+templ Users(users []string) {
+    <style>
+        .info {
+            color: blue;
+        }
+    </style>
+    switch len(users) {
+        case 0:
+            <h1>No users</h1>
+        case 1:
+            <h1>User</h1>
+        default:
+            <h1>Users</h1>
+    }
+
+    <ul>
+        for _, u := range users {
+            <li class={"info", templ.KV(adminClass(), u == "robson")}>
+                <a href={templ.SafeURL("/users/" + u)}>{u}</a>
+            </li>
+        }
+    </ul>
+}

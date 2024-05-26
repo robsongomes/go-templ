@@ -1,0 +1,37 @@
+package views
+
+templ Layout(content templ.Component) {
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Go Templ</title>
+    </head>
+    <body>
+        <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
+        @header()
+        @content
+        @footer()
+    </body>
+    </html>
+}
+
+templ footer() {
+    <footer>This is the footer</footer>
+}
+
+templ header() {
+    <header>
+        @menu() {
+            <li><a href="/">Home</a></li>
+            <li><a href="/users">Users</a></li>
+        }
+    </header>
+}
+
+templ menu() {
+    <ul>
+    {children...}
+    </ul>
+}

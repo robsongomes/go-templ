@@ -1,0 +1,11 @@
+package views
+
+templ User() {
+    if ctx.Value("user") != nil {
+        <h1>{ctx.Value("user").(string)}</h1>
+    } else {
+        <p>
+            Você não tem permissão de visualizar essa página
+        </p>
+    }
+}

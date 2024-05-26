@@ -1,0 +1,10 @@
+package views
+
+script showMessage() {
+    console.log("Carregou o javascript")
+}
+
+templ Home() {
+    <h1>Home Page</h1>
+    <button onclick={showMessage()}>Click</button>
+}
